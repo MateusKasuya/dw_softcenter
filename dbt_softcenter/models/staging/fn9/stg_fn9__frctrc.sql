@@ -1,45 +1,49 @@
-with
-source as (
-    select * from {{ source('fn9', "FRCTRC")}}
+WITH source AS (
+    SELECT *
+    FROM {{ source('fn9', 'FRCTRC') }}
 ),
 
-renamed as (
+staging AS (
     SELECT
-        -- Identificação do CT-e
+        -- Identificação e data do CT-e
         nroctrc,
-        dataemissao::date,
+        dataemissao::DATE,
 
-        -- Situação do CT-e
-        CASE
-            WHEN situacao = 'N' THEN 'Normal'
-            WHEN situacao = 'F' THEN 'Faturado'
-            WHEN situacao = 'C' THEN 'Cancelado'
-            WHEN situacao = 'X' THEN 'Em Trânsito!'
-            WHEN situacao = 'I' THEN 'Inutilizado'
-            WHEN situacao = 'P' THEN 'Pendente'
+        -- Situação e tipo do CT-e
+        CASE situacao
+            WHEN 'N' THEN 'Normal'
+            WHEN 'F' THEN 'Faturado'
+            WHEN 'C' THEN 'Cancelado'
+            WHEN 'X' THEN 'Em Trânsito!'
+            WHEN 'I' THEN 'Inutilizado'
+            WHEN 'P' THEN 'Pendente'
             ELSE situacao
         END AS situacao,
 
-        -- Origem e Destino
+        CASE indctetpcte
+            WHEN '0' THEN 'Normal'
+            WHEN '1' THEN 'Complementar'
+            WHEN '2' THEN 'Anulação'
+            WHEN '3' THEN 'Substituição'
+            ELSE indctetpcte
+        END AS tipo_cte,
+
+        -- Origem e destino
         codcidori,
         codciddes,
 
-        -- Informações sobre o frete
-        CASE
-            WHEN indctetpcte = '0' THEN 'Normal'
-            WHEN indctetpcte = '1' THEN 'Complementar'
-            WHEN indctetpcte = '2' THEN 'Anulação'
-            WHEN indctetpcte = '3' THEN 'Substituição'
-            ELSE indctetpcte
-        END AS tipo_cte,
+        -- Cliente e filial emitente
+        cgccpfdestina,
+        codfilemite,
 
         -- Valores e peso do frete
         pesofrete / 1000.0 AS pesofrete_ton,
         vlrfrete,
-        vlrpedagio
+        vlrpedagio,
+        vlrimposto
 
     FROM source
-
 )
 
-select * from renamed
+SELECT *
+FROM staging

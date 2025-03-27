@@ -4,15 +4,84 @@ models:
   - name: stg_fn9__frctrc # Nome do modelo
     description: "View Staging da FRCTRC"  # Descrição do modelo
     columns:
-      - name: order_id  # Nome da coluna
-        description: "ID único do pedido"  # Descrição da coluna
-        tests:
-          - not_null  # Teste para garantir que a coluna não tenha valores nulos
-          - unique  # Teste para garantir que os valores na coluna sejam únicos
-      - name: customer_id  # Nome da coluna
-        description: "ID do cliente que fez o pedido"  # Descrição da coluna
-        tests:
-          - not_null  # Teste para garantir que a coluna não tenha valores nulos
-          - relationships:  # Teste para garantir a integridade referencial
-              to: ref('stg_customers')  # Referência ao modelo relacionado
-              field: customer_id  # Campo da coluna relacionada
+          - name: nroctrc
+            description: Número CTRC - Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: dataemissao
+            description: Data emissão CTE
+            tests:
+              - not_null
+
+          - name: situacao
+            description:  >
+              Situação em que se encontra o CTRC
+              N = Normal
+              F = Faturado
+              C = Cancelado
+              X = Em Trânsito
+              I = Inutilizado
+              P = Pendente
+              S = ?
+            tests:
+              - accepted_values:
+                  values: ['Normal', 'Faturado', 'Cancelado', 'Em Trânsito', 'Inutilizado', 'Pendente', 'S']
+
+          - name: tipo_cte
+            description: >
+              Tipo de CT-e: Classificação do  tipo do  CT-e
+              0 - Normal: Será emitido um CT-e que acompanhará a entrega de um transporte de  carga
+              1 - Complemento de valores: será emitido  um conhecimento para ajustes algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              2 - Anulação de débito: será emitido  um conhecimento para anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              3 - Substituto do CT-e anulado: será emitido  um conhecimento para substituir anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+            tests:
+              - accepted_values:
+                  values: ['Normal', 'Complementar', 'Anulação', 'Substituição']
+
+          - name: codcidori
+            description: Código Cidade Origem - FK TBCID
+            tests:
+              - relationships:
+                  to: ref('stg_fn9_tbcid')
+                  field: codcid
+
+          - name: codciddes
+            description: Código Cidade Destino - FK TBCID
+            tests:
+              - relationships:
+                  to: ref('stg_fn9_tbcid')
+                  field: codcid
+
+          - name: cgccpfdestina
+            description: CPF/CNPJ Destinatário - FK TBCLI
+            tests:
+              - relationships:
+                  to: ref('stg_fn9_tbcli')
+
+          - name: codfilemite
+            description: Código Filial Emitente - FK TBFIL
+            tests:
+              - relationships:
+                  to: ref('stg_fn9_tbfil')
+
+          - name: pesofrete_ton
+            description: Peso do frete em toneladas
+            tests:
+              - not_null
+
+          - name: vlrfrete
+            description: Valor do frete
+            tests:
+              - not_null
+
+          - name: vlrpedagio
+            description: Valor do Pedágio
+            tests:
+              - not_null
+
+          - name: vlrimposto
+            description: Valor do Imposto
+            tests:
+              - not_null
