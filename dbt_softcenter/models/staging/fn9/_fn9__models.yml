@@ -1,0 +1,18 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_fn9__frctrc # Nome do modelo
+    description: "View Staging da FRCTRC"  # Descrição do modelo
+    columns:
+      - name: order_id  # Nome da coluna
+        description: "ID único do pedido"  # Descrição da coluna
+        tests:
+          - not_null  # Teste para garantir que a coluna não tenha valores nulos
+          - unique  # Teste para garantir que os valores na coluna sejam únicos
+      - name: customer_id  # Nome da coluna
+        description: "ID do cliente que fez o pedido"  # Descrição da coluna
+        tests:
+          - not_null  # Teste para garantir que a coluna não tenha valores nulos
+          - relationships:  # Teste para garantir a integridade referencial
+              to: ref('stg_customers')  # Referência ao modelo relacionado
+              field: customer_id  # Campo da coluna relacionada

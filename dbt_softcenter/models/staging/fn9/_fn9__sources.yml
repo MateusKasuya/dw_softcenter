@@ -1,0 +1,135 @@
+version: 2
+
+sources:
+  - name: fn9
+    description: "Essa é uma réplica do banco Firebird usado no Frete Fácil"
+    database: postgres
+    schema: public
+    tables:
+      - name: "FRCTRC"
+        description: Movimento de CTRC's
+        columns:
+          - name: nroctrc
+            description: Número CTRC - Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: dataemissao
+            description: Data emissão CTE
+            tests:
+              - not_null
+
+          - name: datapreentrega
+            description: Data de previsão de entrega
+
+          - name: situacao
+            description:  >
+              Situação em que se encontra o CTRC
+              N = Normal
+              F = Faturado
+              C = Cancelado
+              X = Em Trânsito
+              I = Inutilizado
+              P = Pendente
+              S = ?
+            tests:
+              - not_null
+
+          - name: ctestatus
+            description: Status do cte, código númerico
+
+          - name: ctestatus_desc
+            description: >
+              Status do CT-e:
+              100 - Autorizado o uso do CT-e
+              101 - Cancelamento de CT-e
+              102 - Inutilização de número
+              103 - Lote recebido com sucesso
+              104 - Lote processado
+              105 - Lote em processamento
+              106 - Lote não localizado
+              107 - Serviço em Operação
+              108 - Serviço Paralisado Momentaneamente (curto prazo)
+              109 - Serviço Paralisado sem Previsão
+              110 - Uso Denegado
+              111 - Consulta cadastro com uma ocorrência
+              112 - Consulta cadastro com mais de uma ocorrência
+
+          - name: codcidori
+            description: Código Cidade Origem - FK TBCID
+
+          - name: codciddes
+            description: Código Cidade Destino - FK TBCID
+
+          - name: indfretepagar
+            description: >
+              Tipo Pagto Frete:
+              2- FRETE PAGO (CIF)
+              1- FRETE A PAGAR (FOB)
+              3 - ?
+            tests:
+              - not_null
+
+          - name: indctetpcte
+            description: >
+              Tipo de CT-e: Classificação do  tipo do  CT-e
+              0 - Normal: Será emitido um CT-e que acompanhará a entrega de um transporte de  carga
+              1 - Complemento de valores: será emitido  um conhecimento para ajustes algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              2 - Anulação de débito: será emitido  um conhecimento para anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              3 - Substituto do CT-e anulado: será emitido  um conhecimento para substituir anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+            tests:
+              - not_null
+
+          - name: tipocarga
+            description: Tipo Cálculo (tabela de negociação) a ser aplicada no cálculo do frete.
+
+          - name: nomerespon
+            description: Nome Reponsável
+
+          - name: placavei
+            description: Placa Veículo
+
+          - name: pesofrete_ton
+            description: Peso do frete em toneladas
+
+          - name: vlrmercadoria
+            description: Valor da mercadoria
+
+          - name: vlrfrete
+            description: Valor do frete efetivo
+
+          - name: tarifafrete
+            description: Tarifa do frete R$/ton
+
+          - name: vlrtotfrete
+            description: Valor total do frete
+
+          - name: vlrseguromerca
+            description: Valor do seguro da mercadoria
+
+      - name: "TBCID"
+        description: Cadastro de Localidades/Cidades
+        columns:
+          - name: codcid
+            description: Código Cidade - PK
+            tests:
+              - not_null
+              - unique
+
+          - name: nome
+            description: Nome cidade
+
+          - name: coduf
+            description: UF Cidade
+
+          - name: codibge
+            description: Código IBGE Cidade
+            tests:
+              - not_null
+
+          - name: endlatitude
+            description: Coordenada latitude
+
+          - name: endlongitude
+            description: Coordenada longitude
