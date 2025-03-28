@@ -1,19 +1,19 @@
-with
-source as (
-    select * from {{ source('fn9', "TBCID")}}
+WITH source AS (
+    SELECT *
+    FROM {{ source('fn9', 'TBCID') }}
 ),
 
-renamed as (
-    select
+staging AS (
+    SELECT
         codcid,
         nome,
         coduf,
-        'BR,' || nome || ',' || coduf as localizacao,
-        codibge,
-        endlatitude,
-        endlongitude
-    from source
+        'Brasil,' || nome || ',' || coduf AS localizacao_pbi,
+        codibge::INT AS codibge,
+        datatlz::DATE
 
+    FROM source
 )
 
-select * from renamed
+SELECT *
+FROM staging

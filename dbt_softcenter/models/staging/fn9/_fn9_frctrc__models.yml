@@ -44,27 +44,29 @@ models:
             description: Código Cidade Origem - FK TBCID
             tests:
               - relationships:
-                  to: ref('stg_fn9_tbcid')
+                  to: ref('stg_fn9__tbcid')
                   field: codcid
 
           - name: codciddes
             description: Código Cidade Destino - FK TBCID
             tests:
               - relationships:
-                  to: ref('stg_fn9_tbcid')
+                  to: ref('stg_fn9__tbcid')
                   field: codcid
 
           - name: cgccpfdestina
             description: CPF/CNPJ Destinatário - FK TBCLI
             tests:
               - relationships:
-                  to: ref('stg_fn9_tbcli')
+                  to: ref('stg_fn9__tbcli')
+                  field: cgccpfcli
 
           - name: codfilemite
             description: Código Filial Emitente - FK TBFIL
             tests:
               - relationships:
-                  to: ref('stg_fn9_tbfil')
+                  to: ref('stg_fn9__tbfil')
+                  field: codfil
 
           - name: pesofrete_ton
             description: Peso do frete em toneladas
@@ -83,5 +85,10 @@ models:
 
           - name: vlrimposto
             description: Valor do Imposto
+            tests:
+              - not_null
+
+          - name: datatlz
+            description: Data de atualização do registro
             tests:
               - not_null

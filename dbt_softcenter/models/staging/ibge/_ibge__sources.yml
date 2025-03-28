@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+
+  - name: ibge
+    description: "Base de municípios ibge obtida através da API do IBGE"
+    database: postgres
+    schema: public
+    tables:
+      - name: ibge_municipios
+        description: "Base csv inserida pelo dbt seed"

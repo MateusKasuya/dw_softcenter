@@ -40,7 +40,10 @@ staging AS (
         pesofrete / 1000.0 AS pesofrete_ton,
         vlrfrete,
         vlrpedagio,
-        vlrimposto
+        vlrimposto,
+
+        -- Metadados
+        datatlz::DATE
 
     FROM source
 )
