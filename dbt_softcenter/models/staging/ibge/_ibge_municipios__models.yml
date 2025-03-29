@@ -1,0 +1,31 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_ibge__municipios # Nome do modelo
+    description: "View Staging da IBGE Municipios"  # Descrição do modelo
+    columns:
+          - name: id
+            description: Id Município - Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: municipio
+            description: Nome Município
+            tests:
+              - not_null
+
+          - name: mesorregiao
+            description: Nome Mesorregião do município
+            tests:
+              - not_null
+
+          - name: uf
+            description: UF do município
+            tests:
+              - not_null
+
+          - name: regiao
+            description: Região do Município
+            tests:
+              - not_null

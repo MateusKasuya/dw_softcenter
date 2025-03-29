@@ -1,7 +1,20 @@
-with source as (
-    select * from {{ source('fn9', "TBFIL")}}
+WITH source AS (
+    SELECT
+        *
+    FROM
+        {{ source('fn9', 'TBFIL') }}
 ),
-staging as (
-    select * from source
+
+staging AS (
+    SELECT
+        codfil,
+        nome,
+        datatlz::DATE
+    FROM
+        source
 )
-select * from staging
+
+SELECT
+    *
+FROM
+    staging
