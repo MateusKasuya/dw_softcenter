@@ -13,3 +13,8 @@ models:
           - name: nomefantasia
             description: Nome Fantasia Fornecedor
               - not_null
+
+          - name: datatlz
+            description: Data de atualização do registro
+            tests:
+              - not_null
