@@ -2,7 +2,7 @@ WITH source AS (
     SELECT
         *
     FROM
-        {{ source('ibge', 'ibge_municipios') }}
+        {{ source('raw', 'ibge_municipios') }}
 ),
 
 staging AS (

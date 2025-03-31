@@ -4,7 +4,7 @@ sources:
   - name: fn9
     description: "Essa é uma réplica do banco Firebird usado no Frete Fácil"
     database: postgres
-    schema: public
+    schema: fn9
     tables:
       - name: "FRCTRC"
         description: Movimento de CTRC's
@@ -17,6 +17,12 @@ sources:
 
       - name: "TBFIL"
         description: Cadastro de Filiais
+
+      - name: "FACTRC"
+        description: Movimento de Faturas
+
+      - name: "CPTIT"
+        description: Movimento de Contas a Pagar
 
 
       #   columns:

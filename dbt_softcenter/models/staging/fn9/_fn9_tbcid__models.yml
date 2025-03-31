@@ -26,6 +26,11 @@ models:
                             'EX'
                           ]
 
+          - name: cidade_uf
+            description: Concatenado de Cidade e UF
+            tests:
+              - not_null
+
           - name: localizacao_pbi
             description: Campo para ser utilizado como Mapa no Power BI
             tests:

@@ -1,0 +1,22 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_fn9__factrc # Nome do modelo
+    description: "View Staging da FACTRC"  # Descrição do modelo
+    columns:
+          - name: id
+            description: Id da Fatura - Primary Key - ano + nro fatura
+            tests:
+              - unique
+              - not_null
+
+          - name: datavencto
+            description: Data Vencimento da Fatura
+            tests:
+              - not_null
+
+          - name: datarecbto
+            description: Data de recebimento da fatura
+
+          - name: datatlz
+            description: Data de atualização do registro

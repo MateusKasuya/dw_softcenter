@@ -8,6 +8,7 @@ staging AS (
         codcid,
         nome,
         coduf,
+        nome || '-' || coduf AS cidade_uf,
         'Brasil,' || nome || ',' || coduf AS localizacao_pbi,
         codibge::INT AS codibge,
         datatlz::DATE

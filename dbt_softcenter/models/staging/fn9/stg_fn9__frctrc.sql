@@ -42,6 +42,9 @@ staging AS (
         vlrpedagio,
         vlrimposto,
 
+        -- FK Fatura
+        nrofatura || '-' || nrofatura AS id_fatura,
+
         -- Metadados
         datatlz::DATE
 

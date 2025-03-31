@@ -23,6 +23,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+seeds:
+  +schema: raw
+
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -33,3 +37,4 @@ models:
   dbt_softcenter:
     staging:
       +materialized: view
+      +schema: staging

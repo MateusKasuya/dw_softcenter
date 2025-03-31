@@ -88,6 +88,11 @@ models:
             tests:
               - not_null
 
+          - name: id_fatura
+            description: ID da Fatura - FK FACTRC
+            tests:
+              - not_null
+
           - name: datatlz
             description: Data de atualização do registro
             tests:
