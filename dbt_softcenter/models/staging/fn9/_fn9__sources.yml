@@ -24,27 +24,8 @@ sources:
       - name: "CPTIT"
         description: Movimento de Contas a Pagar
 
+      - name: "TBHIS"
+        description: Cadastro de Históricos
 
-      #   columns:
-      #     - name: codcid
-      #       description: Código Cidade - PK
-      #       tests:
-      #         - not_null
-      #         - unique
-
-      #     - name: nome
-      #       description: Nome cidade
-
-      #     - name: coduf
-      #       description: UF Cidade
-
-      #     - name: codibge
-      #       description: Código IBGE Cidade
-      #       tests:
-      #         - not_null
-
-      #     - name: endlatitude
-      #       description: Coordenada latitude
-
-      #     - name: endlongitude
-      #       description: Coordenada longitude
+      - name: "TBFOR"
+        description: Cadastro de Fornecedores

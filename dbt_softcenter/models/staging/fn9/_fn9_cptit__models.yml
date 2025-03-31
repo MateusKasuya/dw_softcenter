@@ -23,9 +23,17 @@ models:
 
           - name: codtransacao
             description: Código Transação - FK TBHIS
+            tests:
+              - relationships:
+                  to: ref('stg_fn9__tbhis')
+                  field: codtransacao
 
           - name: cgccpfforne
-            description: CPF/CNPJ Fornecedor - FK TBFORCTA
+            description: CPF/CNPJ Fornecedor - FK TBFOR
+            tests:
+              - relationships:
+                  to: ref('stg_fn9__tbfor')
+                  field: cgccpfforne
 
           - name: vlrtotal
             description: Valor total a pagar
