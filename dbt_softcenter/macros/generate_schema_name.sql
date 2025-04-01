@@ -14,6 +14,10 @@
     {% elif 'marts' in node.path %}
         {{ 'marts' }}
 
+    {# marts models  go in a global `intermediate` schema #}
+    {% elif 'intermediate' in node.path %}
+        {{ 'intermediate' }}
+
     {# non-specified schemas go to the default target schema #}
     {% elif custom_schema_name is none %}
         {{ default_schema }}

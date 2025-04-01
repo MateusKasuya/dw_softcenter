@@ -7,6 +7,8 @@ WITH source AS (
 
 staging AS (
     SELECT
+        nrofatura,
+        anofatura,
         nrofatura || '-' || anofatura AS id,
         datavencto::DATE,
         datarecbto::DATE,

@@ -8,7 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         codfil,
-        nome,
+        INITCAP(nome) AS nome,
         datatlz::DATE
     FROM
         source

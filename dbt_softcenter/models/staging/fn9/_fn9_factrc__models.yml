@@ -4,6 +4,17 @@ models:
   - name: stg_fn9__factrc # Nome do modelo
     description: "View Staging da FACTRC"  # Descrição do modelo
     columns:
+
+          - name: nrofatura
+            description: Número da Fatura - Primary Key Composta
+            tests:
+              - not_null
+
+          - name: anofatura
+            description: Ano da Fatura - Primary Key Composta
+            tests:
+              - not_null
+
           - name: id
             description: Id da Fatura - Primary Key - ano + nro fatura
             tests:

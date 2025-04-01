@@ -28,13 +28,14 @@ staging AS (
             ELSE indctetpcte
         END AS tipo_cte,
 
-        -- Origem e destino
-        codcidori,
-        codciddes,
-
-        -- Cliente e filial emitente
-        cgccpfdestina,
+        -- Filial emitente
         codfilemite,
+
+        -- Cliente
+        cgccpfdestina,
+
+        -- Destino
+        codciddes,
 
         -- Valores e peso do frete
         pesofrete / 1000.0 AS pesofrete_ton,
@@ -42,7 +43,7 @@ staging AS (
         vlrpedagio,
         vlrimposto,
 
-        -- FK Fatura
+        -- Fatura
         nrofatura || '-' || nrofatura AS id_fatura,
 
         -- Metadados

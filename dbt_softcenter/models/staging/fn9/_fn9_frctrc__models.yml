@@ -40,19 +40,12 @@ models:
               - accepted_values:
                   values: ['Normal', 'Complementar', 'Anulação', 'Substituição']
 
-          - name: codcidori
-            description: Código Cidade Origem - FK TBCID
+          - name: codfilemite
+            description: Código Filial Emitente - FK TBFIL
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbcid')
-                  field: codcid
-
-          - name: codciddes
-            description: Código Cidade Destino - FK TBCID
-            tests:
-              - relationships:
-                  to: ref('stg_fn9__tbcid')
-                  field: codcid
+                  to: ref('stg_fn9__tbfil')
+                  field: codfil
 
           - name: cgccpfdestina
             description: CPF/CNPJ Destinatário - FK TBCLI
@@ -61,12 +54,12 @@ models:
                   to: ref('stg_fn9__tbcli')
                   field: cgccpfcli
 
-          - name: codfilemite
-            description: Código Filial Emitente - FK TBFIL
+          - name: codciddes
+            description: Código Cidade Destino - FK TBCID
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbfil')
-                  field: codfil
+                  to: ref('stg_fn9__tbcid')
+                  field: codcid
 
           - name: pesofrete_ton
             description: Peso do frete em toneladas

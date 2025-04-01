@@ -14,8 +14,8 @@ staging AS (
 
         -- Foreign Keys
         codfil,
-        codtransacao,
         cgccpfforne,
+        codtransacao,
 
         -- Valores
         vlrtotal,

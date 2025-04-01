@@ -8,9 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         id,
-        nome AS municipio,
         "microrregiao_mesorregiao.nome" AS mesorregiao,
-        "microrregiao_mesorregiao.UF.sigla" AS uf,
         "microrregiao_mesorregiao.UF.regiao.nome" AS regiao
     FROM
         source

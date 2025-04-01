@@ -10,18 +10,8 @@ models:
               - unique
               - not_null
 
-          - name: municipio
-            description: Nome Município
-            tests:
-              - not_null
-
           - name: mesorregiao
             description: Nome Mesorregião do município
-            tests:
-              - not_null
-
-          - name: uf
-            description: UF do município
             tests:
               - not_null
 
