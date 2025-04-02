@@ -1,28 +1,32 @@
-with tbcid as (
+WITH tbcid AS (
 
-    select * from {{ ref('stg_fn9__tbcid') }}
-
-),
-
-ibge as (
-
-    select * from {{ ref('stg_ibge__municipios') }}
+    SELECT *
+    FROM {{ ref('stg_fn9__tbcid') }}
 
 ),
 
-intermediate as (
+ibge AS (
 
-select
-    tbcid.codcid,
-    tbcid.nome,
-    ibge.mesorregiao,
-    tbcid.coduf,
-    ibge.regiao,
-    tbcid.cidade_uf,
-    tbcid.localizacao_pbi
-from tbcid
-left join ibge on tbcid.codibge = ibge.id
+    SELECT *
+    FROM {{ ref('stg_ibge__municipios') }}
+
+),
+
+intermediate AS (
+
+    SELECT
+        tbcid.codcid,
+        tbcid.nome,
+        ibge.mesorregiao,
+        tbcid.coduf,
+        ibge.regiao,
+        tbcid.cidade_uf,
+        tbcid.localizacao_pbi
+    FROM tbcid
+    LEFT JOIN ibge
+        ON tbcid.codibge = ibge.id
 
 )
 
-select * from intermediate
+SELECT *
+FROM intermediate

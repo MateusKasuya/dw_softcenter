@@ -1,0 +1,39 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: int_fn9_cptit_joined # Nome do modelo
+    description: >
+      View Intermediate da CPTIT com joins da TBFIL, TBFOR e TBHIS
+    columns:
+          - name: nrocontrole
+            description: Número Controle - Primary Key
+
+          - name: anocontrole
+            description: Ano Controle - Primary Key
+
+          - name: nome_filial
+            description: Nome Filial
+
+          - name: nome_fornecedor
+            description: Nome do Fornecedor
+
+          - name: descricao_transacao
+            description: Descrição da Transação
+
+          - name: vlrtotal
+            description: Valor total a pagar
+
+          - name: vlrpago
+            description: Valor total pago
+
+          - name: vlrsaldo
+            description: Valor de saldo restante a pagar
+
+          - name: dataemissao
+            description: Data de emissão do documento
+
+          - name: datamovto
+            description: Data de Pagamento
+
+          - name: datavencto
+            description: Data de Vencimento do documento

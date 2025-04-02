@@ -1,0 +1,73 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: int_fn9_frctrc_joined # Nome do modelo
+    description: >
+      View Intermediate da FRCTRC join com TBFIL, TBCLI, TBCID, FACTRC
+    columns:
+          - name: nroctrc
+            description: Número CTRC - Primary Key
+
+          - name: dataemissao
+            description: Data emissão CTE
+
+          - name: situacao
+            description:  >
+              Situação em que se encontra o CTRC
+              N = Normal
+              F = Faturado
+              C = Cancelado
+              X = Em Trânsito
+              I = Inutilizado
+              P = Pendente
+              S = ?
+
+          - name: tipo_cte
+            description: >
+              Tipo de CT-e: Classificação do  tipo do  CT-e
+              0 - Normal: Será emitido um CT-e que acompanhará a entrega de um transporte de  carga
+              1 - Complemento de valores: será emitido  um conhecimento para ajustes algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              2 - Anulação de débito: será emitido  um conhecimento para anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+              3 - Substituto do CT-e anulado: será emitido  um conhecimento para substituir anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+
+          - name: filial
+            description: Nome Filial Emitente
+
+          - name: cliente
+            description: Nome Cliente
+
+          - name: cidade
+            description: Cidade Destino de Entrega
+
+          - name: mesorregiao
+            description: Mesorregião do Município
+
+          - name: coduf
+            description: UF do Município
+
+          - name: regiao
+            description: Região do Município
+
+          - name: cidade_uf
+            description: Concatenado de Cidade e UF
+
+          - name: localizacao_pbi
+            description: Concatenado para usar no Mapa Power BI
+
+          - name: pesofrete_ton
+            description: Peso do frete em toneladas
+
+          - name: vlrfrete
+            description: Valor do frete
+
+          - name: vlrpedagio
+            description: Valor do Pedágio
+
+          - name: vlrimposto
+            description: Valor do Imposto
+
+          - name: datavencto
+            description: Data Vencimento da Fatura
+
+          - name: datarecbto
+            description: Data de Recebimento da Fatura

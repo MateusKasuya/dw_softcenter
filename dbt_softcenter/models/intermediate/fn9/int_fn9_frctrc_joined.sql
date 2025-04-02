@@ -1,43 +1,48 @@
-with frctrc as (
+WITH frctrc AS (
 
-    select * from {{ ref('stg_fn9__frctrc') }}
-
-),
-
-tbfil as (
-
-    select * from {{ ref('stg_fn9__tbfil') }}
+    SELECT *
+    FROM {{ ref('stg_fn9__frctrc') }}
 
 ),
 
-tbcli as (
+tbfil AS (
 
-    select * from {{ ref('stg_fn9__tbcli') }}
-
-),
-
-tbcid as (
-
-    select * from {{ ref('int_fn9_tbcid_joined') }}
+    SELECT *
+    FROM {{ ref('stg_fn9__tbfil') }}
 
 ),
 
-factrc as (
+tbcli AS (
 
-    select * from {{ ref('stg_fn9__factrc')}}
+    SELECT *
+    FROM {{ ref('stg_fn9__tbcli') }}
 
 ),
 
-intermediate as (
+tbcid AS (
 
-    select
+    SELECT *
+    FROM {{ ref('int_fn9_tbcid_joined') }}
+
+),
+
+factrc AS (
+
+    SELECT *
+    FROM {{ ref('stg_fn9__factrc') }}
+
+),
+
+intermediate AS (
+
+    SELECT
         fr.nroctrc,
         fr.dataemissao,
         fr.situacao,
         fr.tipo_cte,
-        fil.nome as filial,
-        cli.nomefantasia as cliente,
-        cid.nome as cidade,
+        fil.nome             AS filial,
+        cli.nomefantasia     AS cliente,
+        cid.nome             AS cidade,
         cid.mesorregiao,
         cid.coduf,
         cid.regiao,
@@ -49,13 +54,17 @@ intermediate as (
         fr.vlrimposto,
         fa.datavencto,
         fa.datarecbto
-    from frctrc fr
-    left join tbfil fil on fr.codfilemite = fil.codfil
-    left join tbcli cli on fr.cgccpfdestina = cli.cgccpfcli
-    left join tbcid cid on fr.codciddes = cid.codcid
-    left join factrc fa on fr.id_fatura = fa.id
-
+    FROM frctrc fr
+    LEFT JOIN tbfil fil
+        ON fr.codfilemite = fil.codfil
+    LEFT JOIN tbcli cli
+        ON fr.cgccpfdestina = cli.cgccpfcli
+    LEFT JOIN tbcid cid
+        ON fr.codciddes = cid.codcid
+    LEFT JOIN factrc fa
+        ON fr.id_fatura = fa.id
 
 )
 
-select * from intermediate
+SELECT *
+FROM intermediate

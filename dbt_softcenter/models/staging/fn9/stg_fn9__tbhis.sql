@@ -6,7 +6,7 @@ WITH source AS (
 staging AS (
     SELECT
         codtransacao,
-        descricao
+        INITCAP(descricao) as descricao
     FROM source
 )
 

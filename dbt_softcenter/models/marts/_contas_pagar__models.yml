@@ -1,0 +1,45 @@
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: contas_pagar # Nome do modelo
+    description: >
+      Tabela Mart Contas a Pagar Unificada Geral de Empresas - INT CPTIT - Empresas: FN9
+    columns:
+          - name: nrocontrole
+            description: Número Controle - Primary Key
+
+          - name: anocontrole
+            description: Ano Controle - Primary Key
+
+          - name: nome_filial
+            description: Nome Filial
+
+          - name: nome_fornecedor
+            description: Nome do Fornecedor
+
+          - name: descricao_transacao
+            description: Descrição da Transação
+
+          - name: vlrtotal
+            description: Valor total a pagar
+
+          - name: vlrpago
+            description: Valor total pago
+
+          - name: vlrsaldo
+            description: Valor de saldo restante a pagar
+
+          - name: dataemissao
+            description: Data de emissão do documento
+
+          - name: datamovto
+            description: Data de Pagamento
+
+          - name: datavencto
+            description: Data de Vencimento do documento
+
+          - name: empresa
+            description: Nome da Empresa da qual pertecem os dados
+            tests:
+              - accepted_values:
+                  values: ['FN9']

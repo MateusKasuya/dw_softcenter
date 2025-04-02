@@ -1,46 +1,54 @@
-with cptit as (
+WITH cptit AS (
 
-    select * from {{ ref('stg_fn9__cptit') }}
-
-),
-
-tbfil as (
-
-    select * from {{ ref('stg_fn9__tbfil')}}
+    SELECT *
+    FROM {{ ref('stg_fn9__cptit') }}
 
 ),
 
-tbfor as (
+tbfil AS (
 
-    select * from {{ ref('stg_fn9__tbfor') }}
-
-),
-
-tbhis as (
-
-    select * from {{ ref('stg_fn9__tbhis') }}
+    SELECT *
+    FROM {{ ref('stg_fn9__tbfil') }}
 
 ),
 
-intermediate as (
+tbfor AS (
 
-    select
-        tit.nrocontrole,
-        tit.anocontrole,
-        fil.nome as filial,
-        forn.nomefantasia as fornecedor,
-        his.descricao as transacao,
-        tit.vlrtotal,
-        tit.vlrpago,
-        tit.vlrsaldo,
-        tit.dataemissao,
-        tit.datamovto,
-        tit.datavencto
-    from cptit tit
-    left join tbfil fil on tit.codfil = fil.codfil
-    left join tbfor forn on tit.cgccpfforne = forn.cgccpfforne
-    left join tbhis his on tit.codtransacao = his.codtransacao
+    SELECT *
+    FROM {{ ref('stg_fn9__tbfor') }}
+
+),
+
+tbhis AS (
+
+    SELECT *
+    FROM {{ ref('stg_fn9__tbhis') }}
+
+),
+
+intermediate AS (
+
+    SELECT
+        cpt.nrocontrole,
+        cpt.anocontrole,
+        fil.nome           AS nome_filial,
+        forr.nomefantasia  AS nome_fornecedor,
+        his.descricao      AS descricao_transacao,
+        cpt.vlrtotal,
+        cpt.vlrpago,
+        cpt.vlrsaldo,
+        cpt.dataemissao,
+        cpt.datamovto,
+        cpt.datavencto
+    FROM cptit cpt
+    LEFT JOIN tbfil fil
+        ON cpt.codfil = fil.codfil
+    LEFT JOIN tbfor forr
+        ON cpt.cgccpfforne = forr.cgccpfforne
+    LEFT JOIN tbhis his
+        ON cpt.codtransacao = his.codtransacao
 
 )
 
-select * from intermediate
+SELECT *
+FROM intermediate
