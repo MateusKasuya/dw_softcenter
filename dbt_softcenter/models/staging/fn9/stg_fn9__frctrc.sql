@@ -13,11 +13,6 @@ staging AS (
         CASE situacao
             WHEN 'N' THEN 'Normal'
             WHEN 'F' THEN 'Faturado'
-            WHEN 'C' THEN 'Cancelado'
-            WHEN 'X' THEN 'Em Trânsito!'
-            WHEN 'I' THEN 'Inutilizado'
-            WHEN 'P' THEN 'Pendente'
-            ELSE situacao
         END AS situacao,
 
         CASE indctetpcte
@@ -39,17 +34,18 @@ staging AS (
 
         -- Valores e peso do frete
         pesofrete / 1000.0 AS pesofrete_ton,
-        vlrfrete,
+        vlrtotfrete,
         vlrpedagio,
         vlrimposto,
 
         -- Fatura
-        nrofatura || '-' || nrofatura AS id_fatura,
+        nrofatura || '-' || anofatura AS id_fatura,
 
         -- Metadados
         datatlz::DATE
 
     FROM source
+    WHERE situacao IN ('N', 'F')
 )
 
 SELECT *

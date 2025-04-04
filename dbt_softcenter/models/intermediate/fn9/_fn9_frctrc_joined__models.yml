@@ -12,23 +12,10 @@ models:
             description: Data emissão CTE
 
           - name: situacao
-            description:  >
-              Situação em que se encontra o CTRC
-              N = Normal
-              F = Faturado
-              C = Cancelado
-              X = Em Trânsito
-              I = Inutilizado
-              P = Pendente
-              S = ?
+            description: Situação em que se encontra o CTRC
 
           - name: tipo_cte
-            description: >
-              Tipo de CT-e: Classificação do  tipo do  CT-e
-              0 - Normal: Será emitido um CT-e que acompanhará a entrega de um transporte de  carga
-              1 - Complemento de valores: será emitido  um conhecimento para ajustes algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
-              2 - Anulação de débito: será emitido  um conhecimento para anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
-              3 - Substituto do CT-e anulado: será emitido  um conhecimento para substituir anular algum valor que ficou  incorreto na emissão de um 0-CT-e normal.
+            description: Tipo de CT-e - Classificação do  tipo do  CT-e
 
           - name: filial
             description: Nome Filial Emitente
@@ -57,7 +44,7 @@ models:
           - name: pesofrete_ton
             description: Peso do frete em toneladas
 
-          - name: vlrfrete
+          - name: vlrtotfrete
             description: Valor do frete
 
           - name: vlrpedagio
@@ -71,3 +58,15 @@ models:
 
           - name: datarecbto
             description: Data de Recebimento da Fatura
+
+          - name: dias_recebimento
+            description: Dias desde a emissão do CTE até o pagamento
+
+          - name: vlrrecbto
+            description: Valor de recebimento da fatura
+
+          - name: vlrsaldo
+            description: Valor de saldo da fatura
+
+          - name: condicao_fatura
+            description: Condição em que a fatura se encontra - Ag. Fatura ou A Receber ou Em Atraso

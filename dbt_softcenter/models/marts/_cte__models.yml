@@ -57,8 +57,8 @@ models:
           - name: pesofrete_ton
             description: Peso do frete em toneladas
 
-          - name: vlrfrete
-            description: Valor do frete
+          - name: vlrtotfrete
+            description: Valor do total frete
 
           - name: vlrpedagio
             description: Valor do Pedágio
@@ -71,6 +71,15 @@ models:
 
           - name: datarecbto
             description: Data de Recebimento da Fatura
+
+          - name: vlrrecbto
+            description: Valor de recebimento da fatura
+
+          - name: vlrsaldo
+            description: Valor de saldo da fatura
+
+          - name: condicao_fatura
+            description: Condição em que a fatura se encontra - Ag. Fatura ou A receber ou Em atraso
 
           - name: empresa
             description: Nome da Empresa da qual pertecem os dados

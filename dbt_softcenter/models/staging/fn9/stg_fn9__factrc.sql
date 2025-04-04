@@ -10,8 +10,11 @@ staging AS (
         nrofatura,
         anofatura,
         nrofatura || '-' || anofatura AS id,
+        nrointegra || '-' || anointegra as id_integra,
         datavencto::DATE,
         datarecbto::DATE,
+        vlrrecbto,
+        vlrsaldo,
         COALESCE(dataalt::DATE, dataemissao::DATE) datatlz
     FROM
         source

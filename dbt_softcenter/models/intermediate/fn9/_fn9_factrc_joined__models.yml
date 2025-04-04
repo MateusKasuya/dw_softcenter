@@ -1,8 +1,8 @@
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: stg_fn9__factrc # Nome do modelo
-    description: "View Staging da FACTRC"  # Descrição do modelo
+  - name: int_fn9_factrc_joined # Nome do modelo
+    description: "View Intermediate da FACTRC self joined"  # Descrição do modelo
     columns:
 
           - name: nrofatura
@@ -21,9 +21,6 @@ models:
               - unique
               - not_null
 
-          - name: id_integra
-            description: Id de Fatura de Parcelamento - Self Join Key - nro + ano integra
-
           - name: datavencto
             description: Data Vencimento da Fatura
             tests:
@@ -33,10 +30,7 @@ models:
             description: Data de recebimento da fatura
 
           - name: vlrrecbto
-            description: Valor de recebimento da fatura
+            description: Valor de recebimento da fatura total
 
           - name: vlrsaldo
-            description: Valor de saldo da fatura
-
-          - name: datatlz
-            description: Data de atualização do registro
+            description: Valor de saldo da fatura total
