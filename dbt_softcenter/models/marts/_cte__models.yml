@@ -4,6 +4,14 @@ models:
   - name: cte # Nome do modelo
     description: >
       Tabela Marts de CTEs - INT FRCTRC - Empresas: FN9
+    tests:
+      - frctrc_row_count:
+          source_table: 'FRCTC'
+          source_schema: fn9
+      - frctrc_sum_match:
+          source_table: 'FRCTRC'
+          source_schema: fn9
+          column_name: vlrtotfrete
     columns:
           - name: nroctrc
             description: Número CTRC - Primary Key

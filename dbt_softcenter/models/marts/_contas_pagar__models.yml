@@ -4,6 +4,14 @@ models:
   - name: contas_pagar # Nome do modelo
     description: >
       Tabela Mart Contas a Pagar Unificada Geral de Empresas - INT CPTIT - Empresas: FN9
+    tests:
+      - cptit_row_count:
+          source_table: 'CPTIT'
+          source_schema: fn9
+      - cptit_sum_match:
+          source_table: 'CPTIT'
+          source_schema: fn9
+          column_name: vlrtotal
     columns:
           - name: nrocontrole
             description: Número Controle - Primary Key
