@@ -62,6 +62,9 @@ models:
           - name: dias_recebimento
             description: Dias desde a emissão do CTE até o pagamento
 
+          - name: vlrfatura
+            description: Valor da fatura
+
           - name: vlrrecbto
             description: Valor de recebimento da fatura
 
@@ -69,4 +72,9 @@ models:
             description: Valor de saldo da fatura
 
           - name: condicao_fatura
-            description: Condição em que a fatura se encontra - Ag. Fatura ou A Receber ou Em Atraso
+            description: Condição em que a fatura se encontra - Ag. Fatura ou A Receber ou Em Atraso ou Recebida
+
+          - name: datatlz
+            description: Data de atualização do registro
+            tests:
+              - not_null

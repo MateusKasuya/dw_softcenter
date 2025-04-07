@@ -72,6 +72,9 @@ models:
           - name: datarecbto
             description: Data de Recebimento da Fatura
 
+          - name: vlrfatura
+            description: Valor da fatura
+
           - name: vlrrecbto
             description: Valor de recebimento da fatura
 
@@ -79,7 +82,7 @@ models:
             description: Valor de saldo da fatura
 
           - name: condicao_fatura
-            description: Condição em que a fatura se encontra - Ag. Fatura ou A receber ou Em atraso
+            description: Condição em que a fatura se encontra - Ag. Fatura ou A Receber ou Em Atraso ou Recebida
 
           - name: empresa
             description: Nome da Empresa da qual pertecem os dados

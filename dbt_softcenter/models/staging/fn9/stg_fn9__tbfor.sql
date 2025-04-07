@@ -6,8 +6,7 @@ WITH source AS (
 staging AS (
     SELECT
         cgccpfforne,
-        INITCAP(nomefantasia) as nomefantasia,
-        datatlz::DATE
+        INITCAP(nomefantasia) as nomefantasia
     FROM source
 )
 

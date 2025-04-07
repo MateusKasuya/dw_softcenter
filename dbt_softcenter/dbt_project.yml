@@ -44,3 +44,4 @@ models:
     marts:
       +materialized: table
       +schema: marts
+      +on_schema_change: "sync_all_columns"

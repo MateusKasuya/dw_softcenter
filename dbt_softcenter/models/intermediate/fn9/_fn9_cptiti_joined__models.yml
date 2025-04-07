@@ -37,3 +37,8 @@ models:
 
           - name: datavencto
             description: Data de Vencimento do documento
+
+          - name: datatlz
+            description: Data de atualização do registro
+            tests:
+              - not_null

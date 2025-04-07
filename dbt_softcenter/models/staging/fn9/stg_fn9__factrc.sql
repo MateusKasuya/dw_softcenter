@@ -13,9 +13,9 @@ staging AS (
         nrointegra || '-' || anointegra as id_integra,
         datavencto::DATE,
         datarecbto::DATE,
+        vlrfatura,
         vlrrecbto,
-        vlrsaldo,
-        COALESCE(dataalt::DATE, dataemissao::DATE) datatlz
+        vlrsaldo
     FROM
         source
 )

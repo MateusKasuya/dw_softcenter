@@ -32,11 +32,11 @@ models:
           - name: datarecbto
             description: Data de recebimento da fatura
 
+          - name: vlrfatura
+            description: Valor da fatura
+
           - name: vlrrecbto
             description: Valor de recebimento da fatura
 
           - name: vlrsaldo
             description: Valor de saldo da fatura
-
-          - name: datatlz
-            description: Data de atualização do registro

@@ -39,7 +39,8 @@ intermediate AS (
         cpt.vlrsaldo,
         cpt.dataemissao,
         cpt.datamovto,
-        cpt.datavencto
+        cpt.datavencto,
+        cpt.datatlz
     FROM cptit cpt
     LEFT JOIN tbfil fil
         ON cpt.codfil = fil.codfil

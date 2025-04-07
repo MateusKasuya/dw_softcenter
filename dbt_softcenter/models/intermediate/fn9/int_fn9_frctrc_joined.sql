@@ -55,15 +55,17 @@ intermediate AS (
         fa.datavencto,
         fa.datarecbto,
         fa.datarecbto - fr.dataemissao AS dias_recebimento,
+        fa.vlrfatura,
         fa.vlrrecbto,
         fa.vlrsaldo,
         CASE
-            WHEN fa.datavencto IS NULL AND fa.vlrrecbto IS NULL AND fa.vlrsaldo IS NULL THEN 'Ag. Fatura'
-            WHEN fa.datavencto < CURRENT_DATE AND fa.vlrrecbto = 0 AND fa.vlrsaldo > 0 THEN 'Em Atraso'
-            WHEN fa.datavencto IS NOT NULL AND fa.vlrrecbto > 0 AND fa.vlrsaldo = 0 THEN 'Recebida'
-            WHEN fa.datavencto IS NOT NULL AND fa.vlrrecbto > 0 AND fa.vlrsaldo > 0 THEN 'Recebida Parcialmente'
+            WHEN fr.situacao = 'Normal' THEN 'Ag. Fatura'
+            WHEN fr.situacao = 'Faturado' AND fa.datavencto < CURRENT_DATE AND fa.vlrsaldo > 0 THEN 'Em Atraso'
+            WHEN fr.situacao = 'Faturado' AND fa.vlrsaldo = 0 THEN 'Recebida'
+            --WHEN fa.datavencto IS NOT NULL AND fa.vlrrecbto > 0 AND fa.vlrsaldo > 0 THEN 'Recebida Parcialmente'
             ELSE 'A Receber'
-        END AS condicao_fatura
+        END AS condicao_fatura,
+        fr.datatlz
     FROM frctrc fr
     LEFT JOIN tbfil fil
         ON fr.codfilemite = fil.codfil

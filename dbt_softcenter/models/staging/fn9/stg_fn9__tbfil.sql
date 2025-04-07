@@ -8,8 +8,7 @@ WITH source AS (
 staging AS (
     SELECT
         codfil,
-        INITCAP(nome) AS nome,
-        datatlz::DATE
+        INITCAP(nome) AS nome
     FROM
         source
 )

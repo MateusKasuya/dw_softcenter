@@ -10,8 +10,7 @@ staging AS (
         coduf,
         INITCAP(nome) || '-' || coduf AS cidade_uf,
         'Brasil,' || INITCAP(nome) || ',' || coduf AS localizacao_pbi,
-        codibge::INT AS codibge,
-        datatlz::DATE
+        codibge::INT AS codibge
 
     FROM source
 )

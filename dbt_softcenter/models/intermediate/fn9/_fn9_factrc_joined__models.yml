@@ -5,16 +5,6 @@ models:
     description: "View Intermediate da FACTRC self joined"  # Descrição do modelo
     columns:
 
-          - name: nrofatura
-            description: Número da Fatura - Primary Key Composta
-            tests:
-              - not_null
-
-          - name: anofatura
-            description: Ano da Fatura - Primary Key Composta
-            tests:
-              - not_null
-
           - name: id
             description: Id da Fatura - Primary Key - nro + ano fatura
             tests:
@@ -28,6 +18,9 @@ models:
 
           - name: datarecbto
             description: Data de recebimento da fatura
+
+          - name: vlrfatura
+            description: Valor da fatura
 
           - name: vlrrecbto
             description: Valor de recebimento da fatura total
