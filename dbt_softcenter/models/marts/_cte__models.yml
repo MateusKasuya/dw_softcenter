@@ -6,7 +6,7 @@ models:
       Tabela Marts de CTEs - INT FRCTRC - Empresas: FN9
     tests:
       - frctrc_row_count:
-          source_table: 'FRCTC'
+          source_table: 'FRCTRC'
           source_schema: fn9
       - frctrc_sum_match:
           source_table: 'FRCTRC'
@@ -61,6 +61,9 @@ models:
 
           - name: localizacao_pbi
             description: Concatenado para usar no Mapa Power BI
+
+          - name: produto
+            description: Produto transportado
 
           - name: pesofrete_ton
             description: Peso do frete em toneladas

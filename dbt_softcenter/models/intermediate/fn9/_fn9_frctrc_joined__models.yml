@@ -41,6 +41,9 @@ models:
           - name: localizacao_pbi
             description: Concatenado para usar no Mapa Power BI
 
+          - name: produto
+            description: Produto transportado
+
           - name: pesofrete_ton
             description: Peso do frete em toneladas
 

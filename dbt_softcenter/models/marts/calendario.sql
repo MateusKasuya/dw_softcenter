@@ -78,6 +78,13 @@ calendario AS (
             WHEN 12 THEN 'Dez'
         END || '/' || RIGHT(EXTRACT(YEAR FROM data)::TEXT, 2) AS mes_ano,
 
+        CASE
+            WHEN EXTRACT(MONTH FROM data) = EXTRACT(MONTH FROM CURRENT_DATE)
+             AND EXTRACT(YEAR FROM data) = EXTRACT(YEAR FROM CURRENT_DATE)
+            THEN TRUE
+            ELSE FALSE
+        END AS mes_atual,
+
         EXTRACT(DAY FROM data) AS dia
 
     FROM generate_series

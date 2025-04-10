@@ -29,3 +29,6 @@ sources:
 
       - name: "TBFOR"
         description: Cadastro de Fornecedores
+
+      - name: "TBPRO"
+        description: Cadastro de Produtos Transportados

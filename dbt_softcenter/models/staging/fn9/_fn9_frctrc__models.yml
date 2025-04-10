@@ -49,6 +49,13 @@ models:
                   to: ref('stg_fn9__tbcid')
                   field: codcid
 
+          - name: codpro
+            description: Código Produto - FK TBPRO
+            tests:
+              - relationships:
+                  to: ref('stg_fn9__tbpro')
+                  field: codpro
+
           - name: pesofrete_ton
             description: Peso do frete em toneladas
             tests:

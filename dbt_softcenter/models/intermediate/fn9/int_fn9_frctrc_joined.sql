@@ -26,6 +26,13 @@ tbcid AS (
 
 ),
 
+tbpro AS (
+
+    SELECT *
+    FROM {{ ref('stg_fn9__tbpro') }}
+
+),
+
 factrc AS (
 
     SELECT *
@@ -48,6 +55,7 @@ intermediate AS (
         cid.regiao,
         cid.cidade_uf,
         cid.localizacao_pbi,
+        pro.nome AS produto,
         fr.pesofrete_ton,
         fr.vlrtotfrete,
         fr.vlrpedagio,
@@ -73,6 +81,8 @@ intermediate AS (
         ON fr.cgccpfdestina = cli.cgccpfcli
     LEFT JOIN tbcid cid
         ON fr.codciddes = cid.codcid
+    LEFT JOIN tbpro pro
+        ON fr.codpro = pro.codpro
     LEFT JOIN factrc fa
         ON fr.id_fatura = fa.id
 

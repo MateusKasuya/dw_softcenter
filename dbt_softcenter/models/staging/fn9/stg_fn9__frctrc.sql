@@ -32,6 +32,9 @@ staging AS (
         -- Destino
         codciddes,
 
+        -- Produto
+        codpro,
+
         -- Valores e peso do frete
         pesofrete / 1000.0 AS pesofrete_ton,
         vlrtotfrete,
