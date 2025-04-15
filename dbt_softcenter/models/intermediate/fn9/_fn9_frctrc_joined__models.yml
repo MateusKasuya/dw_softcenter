@@ -6,7 +6,10 @@ models:
       View Intermediate da FRCTRC join com TBFIL, TBCLI, TBCID, FACTRC
     columns:
           - name: nroctrc
-            description: Número CTRC - Primary Key
+            description: Número CTRC - Primary Key Composta
+
+          - name: ufctrc
+            description: UF CTRC - Primary Key Composta
 
           - name: dataemissao
             description: Data emissão CTE
@@ -19,6 +22,9 @@ models:
 
           - name: filial
             description: Nome Filial Emitente
+
+          - name: cgccpfdestina
+            description: CPF/CNPJ Cliente
 
           - name: cliente
             description: Nome Cliente

@@ -1,42 +1,42 @@
 WITH frctrc AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__frctrc') }}
+    FROM {{ ref('stg_mgp__frctrc') }}
 
 ),
 
 tbfil AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbfil') }}
+    FROM {{ ref('stg_mgp__tbfil') }}
 
 ),
 
 tbcli AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbcli') }}
+    FROM {{ ref('stg_mgp__tbcli') }}
 
 ),
 
 tbcid AS (
 
     SELECT *
-    FROM {{ ref('int_fn9_tbcid_joined') }}
+    FROM {{ ref('int_mgp_tbcid_joined') }}
 
 ),
 
 tbpro AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbpro') }}
+    FROM {{ ref('stg_mgp__tbpro') }}
 
 ),
 
 factrc AS (
 
     SELECT *
-    FROM {{ ref('int_fn9_factrc_joined') }}
+    FROM {{ ref('int_mgp_factrc_joined') }}
 
 ),
 

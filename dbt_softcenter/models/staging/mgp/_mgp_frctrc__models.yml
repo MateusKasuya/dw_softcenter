@@ -1,7 +1,7 @@
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: stg_fn9__frctrc # Nome do modelo
+  - name: stg_mgp__frctrc # Nome do modelo
     description: "View Staging da FRCTRC"  # Descrição do modelo
     columns:
           - name: nroctrc
@@ -36,28 +36,28 @@ models:
             description: Código Filial Emitente - FK TBFIL
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbfil')
+                  to: ref('stg_mgp__tbfil')
                   field: codfil
 
           - name: cgccpfdestina
             description: CPF/CNPJ Destinatário - FK TBCLI
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbcli')
+                  to: ref('stg_mgp__tbcli')
                   field: cgccpfcli
 
           - name: codciddes
             description: Código Cidade Destino - FK TBCID
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbcid')
+                  to: ref('stg_mgp__tbcid')
                   field: codcid
 
           - name: codpro
             description: Código Produto - FK TBPRO
             tests:
               - relationships:
-                  to: ref('stg_fn9__tbpro')
+                  to: ref('stg_mgp__tbpro')
                   field: codpro
 
           - name: pesofrete_ton

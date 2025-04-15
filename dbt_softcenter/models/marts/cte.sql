@@ -1,7 +1,8 @@
 {{
     config(
         materialized = 'incremental',
-        unique_key = 'nroctrc'
+        unique_key = 'nroctrc',
+        on_schema_change = 'append_new_columns'
     )
 }}
 
@@ -25,10 +26,28 @@ fn9 AS (
 
 ),
 
+mgp AS (
+
+    SELECT
+        frctrc.*,
+        'MGP' AS empresa
+    FROM {{ ref('int_mgp_frctrc_joined') }} frctrc
+    {% if is_incremental() %}
+    CROSS JOIN max_data
+    WHERE frctrc.datatlz >= max_data.max_datatlz
+    {% endif %}
+
+),
+
 marts AS (
 
     SELECT *
     FROM fn9
+
+    UNION ALL
+
+    SELECT *
+    FROM mgp
 
 )
 

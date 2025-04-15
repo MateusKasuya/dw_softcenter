@@ -1,7 +1,7 @@
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: int_fn9_factrc_joined # Nome do modelo
+  - name: int_mgp_factrc_joined # Nome do modelo
     description: "View Intermediate da FACTRC self joined"  # Descrição do modelo
     columns:
 

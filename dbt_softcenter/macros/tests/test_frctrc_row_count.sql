@@ -1,4 +1,4 @@
-{% test frctrc_row_count(model, source_table, source_schema) %}
+{% test frctrc_row_count(model, source_table, source_schema, nome_empresa) %}
 
 SELECT 1
 FROM (
@@ -9,6 +9,7 @@ FROM (
 (
     SELECT COUNT(*) AS model_count
     FROM {{ model }}
+    WHERE empresa = '{{ nome_empresa }}'
 ) m
 WHERE s.source_count != m.model_count
 
