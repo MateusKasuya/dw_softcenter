@@ -57,6 +57,9 @@ models:
           - name: datavencto
             description: Data de Vencimento do documento
 
+          - name: condicao_fatura
+            description: Condicação da Fatura a Pagar
+
           - name: empresa
             description: Nome da Empresa da qual pertecem os dados
             tests:

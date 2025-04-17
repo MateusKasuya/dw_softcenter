@@ -38,6 +38,9 @@ models:
           - name: datavencto
             description: Data de Vencimento do documento
 
+          - name: condicao_fatura
+            description: Condicação da Fatura a Pagar
+
           - name: datatlz
             description: Data de atualização do registro
             tests:

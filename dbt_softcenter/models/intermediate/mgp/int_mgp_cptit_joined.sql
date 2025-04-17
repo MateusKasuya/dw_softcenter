@@ -40,6 +40,7 @@ intermediate AS (
         cpt.dataemissao,
         cpt.datamovto,
         cpt.datavencto,
+        cpt.condicao_fatura,
         cpt.datatlz
     FROM cptit cpt
     LEFT JOIN tbfil fil
