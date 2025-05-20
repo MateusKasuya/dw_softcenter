@@ -1,0 +1,32 @@
+def create_tbcid_joined_models(schema: str):
+    query = f"""
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: int_{schema}_tbcid_joined # Nome do modelo
+    description: "View Intermediate da TBCID join com IBGE"  # Descrição do modelo
+    columns:
+          - name: codcid
+            description: Código Cidade - Primary Key
+
+          - name: nome
+            description: Nome Cidade
+
+          - name: mesorregiao
+            description: Mesorregião da Cidade
+
+          - name: coduf
+            description: UF Cidade
+
+          - name: regiao
+            description: Região da Cidade
+
+          - name: cidade_uf
+            description: Concatenado de Cidade e UF
+
+          - name: localizacao_pbi
+            description: Campo para ser utilizado como Mapa no Power BI
+
+
+"""
+    return query

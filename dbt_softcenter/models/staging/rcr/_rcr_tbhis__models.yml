@@ -1,0 +1,17 @@
+
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_rcr__tbhis # Nome do modelo
+    description: "View Staging da TBHIS"  # Descrição do modelo
+    columns:
+          - name: codtransacao
+            description: Código Transação - Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: descricao
+            description: Descrição Transação
+            tests:
+              - not_null

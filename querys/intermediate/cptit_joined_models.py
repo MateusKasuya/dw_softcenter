@@ -1,28 +1,11 @@
+def create_cptit_joined_models(schema: str):
+    query = f"""
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: contas_pagar # Nome do modelo
+  - name: int_{schema}_cptit_joined # Nome do modelo
     description: >
-      Tabela Mart Contas a Pagar Unificada Geral de Empresas - INT CPTIT - Empresas: FN9, MGP, RCR
-    tests:
-      - cptit_row_count:
-          source_table: 'CPTIT'
-          source_schema: fn9
-          nome_empresa: FN9
-      - cptit_sum_match:
-          source_table: 'CPTIT'
-          source_schema: fn9
-          column_name: vlrtotal
-          nome_empresa: FN9
-      - cptit_row_count:
-          source_table: 'CPTIT'
-          source_schema: mgp
-          nome_empresa: MGP
-      - cptit_sum_match:
-          source_table: 'CPTIT'
-          source_schema: mgp
-          column_name: vlrtotal
-          nome_empresa: MGP
+      View Intermediate da CPTIT com joins da TBFIL, TBFOR e TBHIS
     columns:
           - name: nrocontrole
             description: Número Controle - Primary Key
@@ -60,8 +43,8 @@ models:
           - name: condicao_fatura
             description: Condicação da Fatura a Pagar
 
-          - name: empresa
-            description: Nome da Empresa da qual pertecem os dados
-            tests:
-              - accepted_values:
-                  values: ['FN9', 'MGP', 'RCR']
+          - name: datatlz
+            description: Data de atualização do registro
+
+"""
+    return query

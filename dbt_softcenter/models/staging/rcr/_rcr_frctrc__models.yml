@@ -1,0 +1,89 @@
+
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_rcr__frctrc # Nome do modelo
+    description: "View Staging da FRCTRC"  # Descrição do modelo
+    columns:
+          - name: nroctrc
+            description: Número CTRC - Primary Key Composta
+            tests:
+              - not_null
+
+          - name: ufctrc
+            description: UF CTRC - Primary Key Composta
+            tests:
+              - not_null
+
+          - name: dataemissao
+            description: Data emissão CTE
+            tests:
+              - not_null
+
+          - name: situacao
+            description: Situação em que se encontra o CTRC
+            tests:
+              - accepted_values:
+                  values: ['Normal', 'Faturado']
+
+          - name: tipo_cte
+            description: Tipo de CT-e - Classificação do  tipo do  CT-e
+
+            tests:
+              - accepted_values:
+                  values: ['Normal', 'Complementar', 'Anulação', 'Substituição']
+
+          - name: codfilemite
+            description: Código Filial Emitente - FK TBFIL
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbfil')
+                  field: codfil
+
+          - name: cgccpfdestina
+            description: CPF/CNPJ Destinatário - FK TBCLI
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbcli')
+                  field: cgccpfcli
+
+          - name: codciddes
+            description: Código Cidade Destino - FK TBCID
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbcid')
+                  field: codcid
+
+          - name: codpro
+            description: Código Produto - FK TBPRO
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbpro')
+                  field: codpro
+
+          - name: pesofrete_ton
+            description: Peso do frete em toneladas
+
+
+          - name: vlrtotfrete
+            description: Valor Total do frete
+            tests:
+              - not_null
+
+          - name: vlrpedagio
+            description: Valor do Pedágio
+            tests:
+              - not_null
+
+          - name: vlrimposto
+            description: Valor do Imposto
+            tests:
+              - not_null
+
+          - name: id_fatura
+            description: ID da Fatura - FK FACTRC
+            tests:
+              - not_null
+
+          - name: datatlz
+            description: Data de atualização do registro

@@ -10,6 +10,6 @@ FROM (
     FROM {{ model }}
     WHERE empresa = '{{ nome_empresa }}'
 ) m
-WHERE s.source_sum != m.model_sum
+WHERE NOT (s.source_sum IS NOT DISTINCT FROM m.model_sum)
 
 {% endtest %}

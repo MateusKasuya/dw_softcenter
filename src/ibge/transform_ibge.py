@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.request_ibge import get_municipios_from_ibge
+from ibge.request_ibge import get_municipios_from_ibge
 
 import pandas as pd
 

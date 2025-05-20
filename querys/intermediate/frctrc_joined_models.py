@@ -1,7 +1,9 @@
+def create_frctrc_joined_models(schema: str):
+    query = f"""
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: int_fn9_frctrc_joined # Nome do modelo
+  - name: int_{schema}_frctrc_joined # Nome do modelo
     description: >
       View Intermediate da FRCTRC join com TBFIL, TBCLI, TBCID, FACTRC
     columns:
@@ -85,3 +87,6 @@ models:
 
           - name: datatlz
             description: Data de atualização do registro
+
+"""
+    return query

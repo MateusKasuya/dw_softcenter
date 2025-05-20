@@ -1,0 +1,75 @@
+
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_rcr__cptit # Nome do modelo
+    description: "View Staging da CPTIT"  # Descrição do modelo
+    columns:
+          - name: nrocontrole
+            description: Número Controle - Primary Key
+            tests:
+              - not_null
+
+          - name: anocontrole
+            description: Ano Controle - Primary Key
+            tests:
+              - not_null
+
+          - name: codfil
+            description: Código Filial - FK TBFIL
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbfil')
+                  field: codfil
+
+          - name: cgccpfforne
+            description: CPF/CNPJ Fornecedor - FK TBFOR
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbfor')
+                  field: cgccpfforne
+
+          - name: codtransacao
+            description: Código Transação - FK TBHIS
+            tests:
+              - relationships:
+                  to: ref('stg_rcr__tbhis')
+                  field: codtransacao
+
+          - name: vlrtotal
+            description: Valor total a pagar
+            tests:
+              - not_null
+
+          - name: vlrpago
+            description: Valor total pago
+            tests:
+              - not_null
+
+          - name: vlrsaldo
+            description: Valor de saldo restante a pagar
+            tests:
+              - not_null
+
+          - name: dataemissao
+            description: Data de emissão do documento
+            tests:
+              - not_null
+
+          - name: datamovto
+            description: Data de Pagamento
+            tests:
+              - not_null
+
+          - name: datavencto
+            description: Data de Vencimento do documento
+            tests:
+              - not_null
+
+          - name: condicao_fatura
+            description: Condicação da Fatura a Pagar
+
+          - name: datatlz
+            description: Data de atualização do registro
+            tests:
+              - not_null

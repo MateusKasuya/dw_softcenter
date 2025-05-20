@@ -1,7 +1,8 @@
+
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: int_fn9_frctrc_joined # Nome do modelo
+  - name: int_rcr_frctrc_joined # Nome do modelo
     description: >
       View Intermediate da FRCTRC join com TBFIL, TBCLI, TBCID, FACTRC
     columns:

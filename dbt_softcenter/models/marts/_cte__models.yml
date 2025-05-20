@@ -3,7 +3,7 @@ version: 2  # Versão do esquema de metadados
 models:
   - name: cte # Nome do modelo
     description: >
-      Tabela Marts de CTEs - INT FRCTRC - Empresas: FN9
+      Tabela Marts de CTEs - INT FRCTRC - Empresas: FN9, MGP, RCR
     tests:
       - frctrc_row_count:
           source_table: 'FRCTRC'
@@ -23,6 +23,15 @@ models:
           source_schema: mgp
           column_name: vlrtotfrete
           nome_empresa: MGP
+      - frctrc_row_count:
+          source_table: 'FRCTRC'
+          source_schema: rcr
+          nome_empresa: RCR
+      - frctrc_sum_match:
+          source_table: 'FRCTRC'
+          source_schema: rcr
+          column_name: vlrtotfrete
+          nome_empresa: RCR
     columns:
           - name: nroctrc
             description: Número CTRC - Primary Key Composta
@@ -116,4 +125,4 @@ models:
             description: Nome da Empresa da qual pertecem os dados
             tests:
               - accepted_values:
-                  values: ['FN9', 'MGP']
+                  values: ['FN9', 'MGP', 'RCR']
