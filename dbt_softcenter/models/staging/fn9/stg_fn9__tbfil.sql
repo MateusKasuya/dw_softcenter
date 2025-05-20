@@ -1,8 +1,9 @@
+
 WITH source AS (
     SELECT
         *
     FROM
-        {{ source('fn9', 'TBFIL') }}
+        {{source('fn9', 'TBFIL')}}
 ),
 
 staging AS (
@@ -17,3 +18,4 @@ SELECT
     *
 FROM
     staging
+

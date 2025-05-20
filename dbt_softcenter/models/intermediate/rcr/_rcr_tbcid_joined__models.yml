@@ -25,3 +25,5 @@ models:
 
           - name: localizacao_pbi
             description: Campo para ser utilizado como Mapa no Power BI
+
+

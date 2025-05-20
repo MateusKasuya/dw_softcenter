@@ -10,6 +10,9 @@ models:
           - name: id
             description: Id da Fatura - Primary Key - nro + ano fatura
 
+          - name: nomeconta
+            description: Nome Conta
+
           - name: datavencto
             description: Data Vencimento da Fatura
 

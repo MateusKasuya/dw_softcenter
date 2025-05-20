@@ -1,3 +1,4 @@
+
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -14,3 +15,6 @@ models:
             description: Nome Filial
             tests:
               - not_null
+
+
+

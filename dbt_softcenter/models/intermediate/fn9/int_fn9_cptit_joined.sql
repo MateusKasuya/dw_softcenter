@@ -1,28 +1,29 @@
+
 WITH cptit AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__cptit') }}
+    FROM {{ref('stg_fn9__cptit')}}
 
 ),
 
 tbfil AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbfil') }}
+    FROM {{ref('stg_fn9__tbfil')}}
 
 ),
 
 tbfor AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbfor') }}
+    FROM {{ref('stg_fn9__tbfor')}}
 
 ),
 
 tbhis AS (
 
     SELECT *
-    FROM {{ ref('stg_fn9__tbhis') }}
+    FROM {{ref('stg_fn9__tbhis')}}
 
 ),
 
@@ -54,3 +55,6 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+
+
+

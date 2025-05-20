@@ -1,6 +1,7 @@
+
 WITH source AS (
     SELECT *
-    FROM {{ source('mgp', 'TBFOR') }}
+    FROM {{source('mgp', 'TBFOR')}}
 ),
 
 staging AS (
@@ -12,3 +13,5 @@ staging AS (
 
 SELECT *
 FROM staging
+
+

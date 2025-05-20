@@ -11,6 +11,7 @@ class Table(Enum):
     TBFOR = "TBFOR"
     TBHIS = "TBHIS"
     TBPRO = "TBPRO"
+    TBCTA = "TBCTA"
 
     def __str__(self):
         return "%s" % self.value

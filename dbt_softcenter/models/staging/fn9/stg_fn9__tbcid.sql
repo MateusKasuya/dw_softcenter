@@ -1,6 +1,7 @@
+
 WITH source AS (
     SELECT *
-    FROM {{ source('fn9', 'TBCID') }}
+    FROM {{source('fn9', 'TBCID')}}
 ),
 
 staging AS (
@@ -17,3 +18,5 @@ staging AS (
 
 SELECT *
 FROM staging
+
+

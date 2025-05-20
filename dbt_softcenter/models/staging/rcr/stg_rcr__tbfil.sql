@@ -18,3 +18,4 @@ SELECT
     *
 FROM
     staging
+

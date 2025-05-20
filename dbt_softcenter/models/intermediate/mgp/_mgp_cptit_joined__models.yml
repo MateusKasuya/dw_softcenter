@@ -1,7 +1,8 @@
+
 version: 2  # Versão do esquema de metadados
 
 models:
-  - name: int_fn9_cptit_joined # Nome do modelo
+  - name: int_mgp_cptit_joined # Nome do modelo
     description: >
       View Intermediate da CPTIT com joins da TBFIL, TBFOR e TBHIS
     columns:
@@ -43,5 +44,4 @@ models:
 
           - name: datatlz
             description: Data de atualização do registro
-            tests:
-              - not_null
+

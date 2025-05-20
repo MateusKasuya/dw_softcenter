@@ -41,6 +41,10 @@ models:
           - name: vlrsaldo
             description: Valor de saldo da fatura
 
+          - name: contareduz
+            description: Código Conta Reduzida
+
+
 
 """
     return query

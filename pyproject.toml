@@ -25,5 +25,3 @@ packages = [
     { include = "querys" },
 ]
 
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^4.2.0"

@@ -1,14 +1,15 @@
+
 WITH tbcid AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbcid') }}
+    FROM {{ref('stg_mgp__tbcid')}}
 
 ),
 
 ibge AS (
 
     SELECT *
-    FROM {{ ref('stg_ibge__municipios') }}
+    FROM {{ref('stg_ibge__municipios')}}
 
 ),
 
@@ -30,3 +31,4 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+

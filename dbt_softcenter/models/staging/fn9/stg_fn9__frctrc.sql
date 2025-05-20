@@ -1,6 +1,7 @@
+
 WITH source AS (
     SELECT *
-    FROM {{ source('fn9', 'FRCTRC') }}
+    FROM {{source('fn9', 'FRCTRC')}}
 ),
 
 staging AS (
@@ -54,3 +55,4 @@ staging AS (
 
 SELECT *
 FROM staging
+

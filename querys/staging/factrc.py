@@ -17,7 +17,8 @@ staging AS (
         datarecbto::DATE,
         vlrfatura,
         vlrrecbto,
-        vlrsaldo
+        vlrsaldo,
+        contareduz
     FROM
         source
 )

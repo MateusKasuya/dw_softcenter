@@ -1,42 +1,43 @@
+
 WITH frctrc AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__frctrc') }}
+    FROM {{ref('stg_mgp__frctrc')}}
 
 ),
 
 tbfil AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbfil') }}
+    FROM {{ref('stg_mgp__tbfil')}}
 
 ),
 
 tbcli AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbcli') }}
+    FROM {{ref('stg_mgp__tbcli')}}
 
 ),
 
 tbcid AS (
 
     SELECT *
-    FROM {{ ref('int_mgp_tbcid_joined') }}
+    FROM {{ref('int_mgp_tbcid_joined')}}
 
 ),
 
 tbpro AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbpro') }}
+    FROM {{ref('stg_mgp__tbpro')}}
 
 ),
 
 factrc AS (
 
     SELECT *
-    FROM {{ ref('int_mgp_factrc_joined') }}
+    FROM {{ref('int_mgp_factrc_joined')}}
 
 ),
 
@@ -75,6 +76,7 @@ intermediate AS (
             --WHEN fa.datavencto IS NOT NULL AND fa.vlrrecbto > 0 AND fa.vlrsaldo > 0 THEN 'Recebida Parcialmente'
             ELSE 'A Receber'
         END AS condicao_fatura,
+        fa.nomeconta AS conta_fatura,
         fr.datatlz
     FROM frctrc fr
     LEFT JOIN tbfil fil
@@ -92,3 +94,5 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+
+

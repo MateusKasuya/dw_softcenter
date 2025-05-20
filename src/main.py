@@ -14,6 +14,7 @@ from staging.tbfil import tbfil
 from staging.tbfor import tbfor
 from staging.tbhis import tbhis
 from staging.tbpro import tbpro
+from staging.tbcta import tbcta
 from staging.source import source
 
 from intermediate.cptit_joined import cptit_joined
@@ -22,7 +23,7 @@ from intermediate.frctrc_joined import frctrc_joined
 from intermediate.tbcid_joined import tbcid_joined
 
 if __name__ == "__main__":
-    list_schemas = [Schema.RCR]
+    list_schemas = [Schema.RCR, Schema.MGP, Schema.FN9]
 
     for schema in list_schemas:
         print(f"Starting {schema.value} processing...")
@@ -52,6 +53,9 @@ if __name__ == "__main__":
         print(f"Starting {schema.value} tbpro processing...")
         tbpro(schema)
         print(f"Finished {schema.value} tbpro processing.")
+        print(f"Starting {schema.value} tbcta processing...")
+        tbcta(schema)
+        print(f"Finished {schema.value} tbcta processing.")
         print(f"Starting {schema.value} source processing...")
         source(schema)
         print(f"Finished {schema.value} source processing.")
@@ -67,3 +71,4 @@ if __name__ == "__main__":
         print(f"Starting {schema.value} tbcid_joined processing...")
         tbcid_joined(schema)
         print(f"Finished {schema.value} tbcid_joined processing.")
+

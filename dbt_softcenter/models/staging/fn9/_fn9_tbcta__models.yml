@@ -1,0 +1,20 @@
+
+version: 2  # Versão do esquema de metadados
+
+models:
+  - name: stg_fn9__tbcta # Nome do modelo
+    description: "View Staging da TBCTA"  # Descrição do modelo
+    columns:
+          - name: contareduz
+            description: Código Conta Reduzida - Primary Key
+            tests:
+              - unique
+              - not_null
+
+          - name: nomeconta
+            description: Nome Conta
+            tests:
+              - not_null
+
+
+

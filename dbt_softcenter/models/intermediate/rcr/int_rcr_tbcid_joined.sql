@@ -31,3 +31,4 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+

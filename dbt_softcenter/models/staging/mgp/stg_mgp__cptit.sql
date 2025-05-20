@@ -1,8 +1,9 @@
+
 WITH source AS (
     SELECT
         *
     FROM
-        {{ source('mgp', 'CPTIT') }}
+        {{source('mgp', 'CPTIT')}}
 ),
 
 staging AS (
@@ -45,3 +46,5 @@ SELECT
     *
 FROM
     staging
+
+

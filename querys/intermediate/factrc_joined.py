@@ -19,10 +19,17 @@ agg_integra AS (
 
 ),
 
+tbcta AS (
+    SELECT *
+    FROM {{{{ref('stg_{schema}__tbcta')}}}}
+
+),
+
 intermediate AS (
 
     SELECT
         f1.id,
+        ct.nomeconta,
         f1.datavencto,
         f1.datarecbto,
         f1.vlrfatura + COALESCE(f2.vlrfatura_integra,0) AS vlrfatura,
@@ -31,6 +38,8 @@ intermediate AS (
     FROM factrc f1
     LEFT JOIN agg_integra f2
         ON f1.id = f2.id_integra
+    LEFT JOIN tbcta ct
+        ON f1.contareduz = ct.contareduz
 
 )
 

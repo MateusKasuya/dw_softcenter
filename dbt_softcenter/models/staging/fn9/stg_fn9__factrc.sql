@@ -1,8 +1,9 @@
+
 WITH source AS (
     SELECT
         *
     FROM
-        {{ source('fn9', 'FACTRC') }}
+        {{source('fn9', 'FACTRC')}}
 ),
 
 staging AS (
@@ -15,7 +16,8 @@ staging AS (
         datarecbto::DATE,
         vlrfatura,
         vlrrecbto,
-        vlrsaldo
+        vlrsaldo,
+        contareduz
     FROM
         source
 )
@@ -24,3 +26,5 @@ SELECT
     *
 FROM
     staging
+
+

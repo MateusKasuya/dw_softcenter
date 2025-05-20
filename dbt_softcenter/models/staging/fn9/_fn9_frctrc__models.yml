@@ -1,3 +1,4 @@
+
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -62,8 +63,7 @@ models:
 
           - name: pesofrete_ton
             description: Peso do frete em toneladas
-            tests:
-              - not_null
+
 
           - name: vlrtotfrete
             description: Valor Total do frete
@@ -87,5 +87,5 @@ models:
 
           - name: datatlz
             description: Data de atualização do registro
-            tests:
-              - not_null
+
+

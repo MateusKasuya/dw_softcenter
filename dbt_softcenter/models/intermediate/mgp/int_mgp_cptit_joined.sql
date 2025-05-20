@@ -1,28 +1,29 @@
+
 WITH cptit AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__cptit') }}
+    FROM {{ref('stg_mgp__cptit')}}
 
 ),
 
 tbfil AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbfil') }}
+    FROM {{ref('stg_mgp__tbfil')}}
 
 ),
 
 tbfor AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbfor') }}
+    FROM {{ref('stg_mgp__tbfor')}}
 
 ),
 
 tbhis AS (
 
     SELECT *
-    FROM {{ ref('stg_mgp__tbhis') }}
+    FROM {{ref('stg_mgp__tbhis')}}
 
 ),
 
@@ -54,3 +55,6 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+
+
+

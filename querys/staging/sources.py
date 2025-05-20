@@ -35,5 +35,8 @@ sources:
       - name: "TBPRO"
         description: Cadastro de Produtos Transportados
 
+      - name: "TBCTA"
+        description: Cadastro de Contas a Receber
+
 """
     return query

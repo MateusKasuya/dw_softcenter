@@ -85,6 +85,9 @@ models:
           - name: condicao_fatura
             description: Condição em que a fatura se encontra - Ag. Fatura ou A Receber ou Em Atraso ou Recebida
 
+          - name: conta_fatura
+            description: Nome Conta a Receber
+
           - name: datatlz
             description: Data de atualização do registro
 

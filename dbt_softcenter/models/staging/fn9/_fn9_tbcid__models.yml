@@ -1,3 +1,4 @@
+
 version: 2  # Versão do esquema de metadados
 
 models:
@@ -23,7 +24,7 @@ models:
                             'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO',
                             'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI',
                             'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO',
-                            'EX'
+                            'EX', 'IN'
                           ]
 
           - name: cidade_uf
@@ -38,3 +39,4 @@ models:
 
           - name: codibge
             description: Código IBGE
+

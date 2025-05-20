@@ -76,6 +76,7 @@ intermediate AS (
             --WHEN fa.datavencto IS NOT NULL AND fa.vlrrecbto > 0 AND fa.vlrsaldo > 0 THEN 'Recebida Parcialmente'
             ELSE 'A Receber'
         END AS condicao_fatura,
+        fa.nomeconta AS conta_fatura,
         fr.datatlz
     FROM frctrc fr
     LEFT JOIN tbfil fil
@@ -93,3 +94,5 @@ intermediate AS (
 
 SELECT *
 FROM intermediate
+
+
