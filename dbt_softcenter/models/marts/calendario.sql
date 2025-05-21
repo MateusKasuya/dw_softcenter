@@ -90,7 +90,9 @@ calendario AS (
         CASE
             WHEN EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM data) < 3 THEN TRUE
             ELSE FALSE
-        END AS flag_ano_movel
+        END AS flag_ano_movel,
+
+        EXTRACT(YEAR FROM DATA) = EXTRACT(YEAR FROM CURRENT_DATE) AS flag_ano_atual
 
     FROM generate_series
 

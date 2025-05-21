@@ -24,3 +24,6 @@ models:
 
           - name: flag_ano_movel
             description: Flag para indicar se o ano é pertencente aos 3 últimos anos
+
+          - name: flag_ano_atual
+            description: Flag para indicar se o ano é o ano atual
