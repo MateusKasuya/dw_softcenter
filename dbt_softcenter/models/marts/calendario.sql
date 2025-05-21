@@ -85,7 +85,12 @@ calendario AS (
             ELSE FALSE
         END AS mes_atual,
 
-        EXTRACT(DAY FROM data) AS dia
+        EXTRACT(DAY FROM data) AS dia,
+
+        CASE
+            WHEN EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM data) < 3 THEN TRUE
+            ELSE FALSE
+        END AS flag_ano_movel
 
     FROM generate_series
 

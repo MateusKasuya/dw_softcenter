@@ -21,3 +21,6 @@ models:
 
           - name: dia
             description: Dia da data
+
+          - name: flag_ano_movel
+            description: Flag para indicar se o ano é pertencente aos 3 últimos anos
